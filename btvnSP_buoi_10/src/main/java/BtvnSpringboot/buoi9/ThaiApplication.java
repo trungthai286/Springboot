@@ -8,8 +8,5 @@ public class ThaiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ThaiApplication.class, args);
-
     }
-
-
 }

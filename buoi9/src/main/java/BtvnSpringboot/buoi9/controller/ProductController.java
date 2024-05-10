@@ -2,12 +2,14 @@ package BtvnSpringboot.buoi9.controller;
 
 import BtvnSpringboot.buoi9.model.Product;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping
 public class ProductController {
     private List<Product> products;
 
@@ -19,10 +21,11 @@ public class ProductController {
         products.add(new Product(04, "Huwei P60", "newHuwei", 800, "Huwei"));
         products.add(new Product(05, "Oppo Reno 6", "newOppo", 750, "Oppo"));
         products.add(new Product(06, "Redmi note 10 pro", "newRedmi", 450, "Xiaomi"));
-
     }
+
     @GetMapping("/products") //hhtp:// localhost:8082/products
-    public List<Product>getAllProducts(){
+    public List<Product> getAllProducts() {
         return products;
+
     }
 }
