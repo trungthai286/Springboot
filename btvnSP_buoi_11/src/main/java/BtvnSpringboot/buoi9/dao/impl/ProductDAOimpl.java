@@ -69,7 +69,7 @@ public class ProductDAOimpl implements ProductDAO {
             }
         });
         for (Product product : ProductDB.products) {
-            if (product.getBrand().toLowerCase().equals(brand.toLowerCase())) {
+            if (product.getBrand().equalsIgnoreCase(brand)) {
                 return product;
             }
         }
