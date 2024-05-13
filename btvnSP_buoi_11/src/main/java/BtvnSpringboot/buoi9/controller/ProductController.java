@@ -36,34 +36,19 @@ public class ProductController {
 
     @GetMapping("/name-starts/{prefix}")
     public ResponseEntity<List<Product>> getPrefixProducts(@PathVariable String prefix) {
-        List<Product> result = new ArrayList<>();
-        for (Product product : productService.getPrefixProducts(prefix)) {
-            if (product.getName().toLowerCase().startsWith(prefix.toLowerCase())) {
-                result.add(product);
-            }
-        }
+        List<Product> result = productService.getPrefixProducts(prefix);
         return ResponseEntity.ok(result);
     }
 
     @GetMapping("/price/{min}/{max}")
     public ResponseEntity<List<Product>> getPriceProducts(@PathVariable int min, @PathVariable int max) {
-        List<Product> result = new ArrayList<>();
-        for (Product product : productService.getPriceProducts(min, max)) {
-            if (product.getPrice() >= min && product.getPrice() <= max) {
-                result.add(product);
-            }
-        }
+        List<Product> result = productService.getPriceProducts(min, max);
         return ResponseEntity.ok(result);
     }
 
     @GetMapping("/brand/{brand}")
-    ResponseEntity<List<Product>> getBrandProducts(@PathVariable String brand) {
-        List<Product> result = new ArrayList<>();
-        for (Product product : productService.getBrandProducts(brand)) {
-            if (product.getBrand().equalsIgnoreCase(brand)) {
-                result.add(product);
-            }
-        }
+    public ResponseEntity<List<Product>> getBrandProducts(@PathVariable String brand) {
+        List<Product> result = productService.getBrandProducts(brand);
         return ResponseEntity.ok(result);
     }
 
