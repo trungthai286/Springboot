@@ -25,7 +25,7 @@ public class ProductController {
         return "getHome";
     }
 
-    @GetMapping("/books")
+    @GetMapping("/products")
     public String getBookList(Model model,
                               @RequestParam(required = false, defaultValue = "1") int page,
                               @RequestParam(required = false, defaultValue = "5") int pageSize) {
