@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class ProductController {
     public String getAll(Model model) {
         List<Product> products = productService.getAllProducts();
         model.addAttribute("products", products);
-        return "getAll";
+        return "getHome";
     }
 
     @GetMapping("/books")
@@ -32,7 +31,7 @@ public class ProductController {
                               @RequestParam(required = false, defaultValue = "5") int pageSize) {
         PageResponse<Product> pageData = new PageResponseImpl<>(productService.getAllProducts(), page, pageSize);
         model.addAttribute("pageData", pageData);
-        return "getAll";
+        return "product-list";
     }
 
     @GetMapping("/products/{id}")

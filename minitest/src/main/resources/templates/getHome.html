@@ -21,6 +21,7 @@
         <th>Price</th>
         <th>Rating</th>
         <th>PriceDiscount</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -32,6 +33,9 @@
         <th th:text="${product.price}"></th>
         <th th:text="${product.rating}"></th>
         <th th:text="${product.priceDiscount}"></th>
+        <th>
+            <a th:href="@{/products/{id} (id = ${product.id})}">Xem chi tiết</a>
+        </th>
     </tr>
     </tbody>
 </table>
