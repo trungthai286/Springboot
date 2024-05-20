@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Search Books</h1>
-<input type="text" id="title" placeholder="Nhập tên sách hoặc tác giả">
+<input type="text" id="ip" placeholder="Nhập tên sách hoặc tác giả">
 <button onclick="searchBooks()">Search</button>
 <div id="message"></div>
 <table id="resultTable">
@@ -27,14 +27,13 @@
 </table>
 <script>
     function searchBooks() {
-        const keyword = document.getElementById('title').value;
+        const keyword = document.getElementById('ip').value;
         fetch(`/api/books/search?keyword=${keyword}`)
             .then(response => response.json())
             .then(data => {
                 const table = document.getElementById('resultTable');
                 const tbody = table.querySelector('tbody');
                 const message = document.getElementById('message');
-
                 tbody.innerHTML = '';
                 if (data.length > 0) {
                     table.style.display = 'table';
