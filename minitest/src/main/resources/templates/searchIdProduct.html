@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả tìm kiếm</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<form action="/search" method="get">
+    <input type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm">
+    <button type="submit">Tìm kiếm</button>
+</form>
+
+<h1>Kết quả tìm kiếm</h1>
+<div>
+    <span th:if="${message}" th:text="${message}"></span>
+    <table th:if="${products}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Thumbnail</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>PriceDiscount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <th th:text="${product.id}"></th>
+            <th th:text="${product.name}"></th>
+            <th th:text="${product.description}"></th>
+            <th><img th:src="${product.thumbnail}" alt="Thumbnail" width="100"></th>
+            <th th:text="${product.price}"></th>
+            <th th:text="${product.rating}"></th>
+            <th th:text="${product.priceDiscount}"></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
