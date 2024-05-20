@@ -13,8 +13,8 @@
 <h1>Search Books</h1>
 <input type="text" class="ip" placeholder="Nhập tên sách hoặc tác giả">
 <button onclick="searchBooks()">Search</button>
-<div class="message"></div>
-<table class="resultTable">
+<div class="box"></div>
+<table class="Table">
     <thead>
     <tr>
         <th>ID</th>
@@ -31,9 +31,9 @@
         fetch(`/api/books/search?keyword=${keyword}`)
             .then(response => response.json())
             .then(data => {
-                const table = document.querySelector('.resultTable');
+                const table = document.querySelector('.Table');
                 const tbody = table.querySelector('tbody');
-                const message = document.querySelector('.message');
+                const message = document.querySelector('.box');
                 tbody.innerHTML = '';
                 if (data.length > 0) {
                     table.style.display = 'table';
