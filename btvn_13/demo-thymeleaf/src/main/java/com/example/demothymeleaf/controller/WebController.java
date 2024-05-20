@@ -104,10 +104,10 @@ public class WebController {
     }
 
     @GetMapping("/api/books/search")
-    public ResponseEntity<List<Book>> searchBooks(@RequestParam String title) {
+    public ResponseEntity<List<Book>> searchBooks(@RequestParam String keyword) {
         List<Book> result = books.stream()
-                .filter(book -> book.getTitle().toLowerCase().contains(title.toLowerCase()) || book.getAuthor().toLowerCase().contains(title.toLowerCase()))
-                .collect(Collectors.toList());
+                .filter(book -> book.getTitle().toLowerCase().contains(keyword.toLowerCase()) || book.getAuthor().toLowerCase().contains(keyword.toLowerCase()))
+                .toList();
         return ResponseEntity.ok(result);
     }
 
