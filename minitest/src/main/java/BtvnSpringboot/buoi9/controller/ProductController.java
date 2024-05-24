@@ -26,9 +26,9 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public String getBookList(Model model,
-                              @RequestParam(required = false, defaultValue = "1") int page,
-                              @RequestParam(required = false, defaultValue = "5") int pageSize) {
+    public String getProductList(Model model,
+                                 @RequestParam(required = false, defaultValue = "1") int page,
+                                 @RequestParam(required = false, defaultValue = "5") int pageSize) {
         PageResponse<Product> pageData = new PageResponseImpl<>(productService.getAllProducts(), page, pageSize);
         model.addAttribute("pageData", pageData);
         return "product-list";

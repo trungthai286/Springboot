@@ -15,22 +15,35 @@
     <thead class="title">
     <tr>
         <th>ID</th>
-        <th>Name</th>
+
         <th>Description</th>
         <th>Thumbnail</th>
-        <th>Price</th>
-        <th>Rating</th>
+
+
         <th>PriceDiscount</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="product:${product}">
         <th th:text="${product.id}"></th>
-        <th th:text="${product.name}"></th>
+
         <th th:text="${product.description}"></th>
-        <th><img th:src="${product.thumbnail}" alt="Thumbnail" width="100"></th>
-        <th th:text="${product.price}"></th>
-        <th th:text="${product.rating}"></th>
+        <th>
+            <div class="card">
+                <img th:src="${product.thumbnail}" alt="Thumbnail">
+                <div>
+                    <div class="card-name">
+                        <p th:text="${product.name}"></p>
+                    </div>
+                    <div class="card-price">
+                        <p th:text="${product.rating}"></p>
+                        <p th:text="${product.price}"></p>
+                    </div>
+                </div>
+            </div>
+        </th>
+
+
         <th th:text="${product.priceDiscount}"></th>
     </tr>
     </tbody>
