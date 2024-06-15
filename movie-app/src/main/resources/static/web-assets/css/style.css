@@ -115,3 +115,19 @@ img {
 #form-login {
     width: 500px;
 }
+
+.movie-item {
+    position: relative;
+}
+
+.remove-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.remove-icon i {
+    font-size: 25px;
+    color: darkslategray;
+}
