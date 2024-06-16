@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
-public class UserPasswordController {
+public class UserPasswordApi {
     private final UserService userService;
 
     @PutMapping("/update-password")
     public ResponseEntity<?> updatePassword(@RequestBody UpdatePasswordRequest request) {
-        User currentUser = userService.getCurrentUser(); // Lấy thông tin người dùng hiện tại từ service
+        User currentUser = userService.getCurrentUser();
         if (currentUser == null) {
             return ResponseEntity.badRequest().body("User not found");
         }

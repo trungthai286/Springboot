@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
-public class UserController {
+public class UserApi {
     private final UserService userService;
 
     @PutMapping("/update-profile")
     public ResponseEntity<?> updateProfile(@RequestBody UpdateProfileUserRequest request) {
-        User currentUser = userService.getCurrentUser(); // Lấy thông tin người dùng hiện tại từ service
+        User currentUser = userService.getCurrentUser();
         if (currentUser == null) {
             return ResponseEntity.badRequest().body("User not found");
         }
