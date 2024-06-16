@@ -16,7 +16,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final HttpSession session;
 
-    // Lấy thông tin người dùng hiện tại từ session
+
     public User getCurrentUser() {
         return (User) session.getAttribute("currentUser");
     }
