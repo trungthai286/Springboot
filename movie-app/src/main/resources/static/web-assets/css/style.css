@@ -116,18 +116,10 @@ img {
     width: 500px;
 }
 
-.movie-item {
-    position: relative;
-}
-
-.remove-icon {
+.btn-remove-favorite {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-}
-
-.remove-icon i {
-    font-size: 25px;
-    color: darkslategray;
+    right: -12px;
+    top: -16px;
+    font-size: 24px;
+    color: red;
 }

@@ -4,6 +4,7 @@ import com.example.movieapp.entity.Review;
 import com.example.movieapp.model.request.CreateReviewRequest;
 import com.example.movieapp.model.request.LoginRequest;
 import com.example.movieapp.service.AuthService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class AuthApi {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<?> login(@Valid  @RequestBody LoginRequest request) {
         authService.login(request);
         return ResponseEntity.ok().build();
     }
